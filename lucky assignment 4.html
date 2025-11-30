@@ -1,0 +1,64 @@
+// ===============================
+// Quiz Questions Array
+// ===============================
+const quizQuestions = [
+  { 
+    question: "What is the capital of France?", 
+    answer: "paris" 
+  },
+  { 
+    question: "What is the largest planet in our solar system?", 
+    answer: "jupiter" 
+  },
+  { 
+    question: "Who wrote the play 'Romeo and Juliet'?", 
+    answer: "william shakespeare" 
+  },
+  { 
+    question: "What is the chemical symbol for water?", 
+    answer: "h2o" 
+  },
+  { 
+    question: "How many continents are there on Earth?", 
+    answer: "7" 
+  }
+];
+
+// ===============================
+// Function to Run the Quiz
+// ===============================
+function runQuiz() {
+  
+  let score = 0; // Score Initialization
+
+  // Loop Through All Questions
+  for (let i = 0; i < quizQuestions.length; i++) {
+
+    let userInput = prompt(quizQuestions[i].question);
+
+    // If user clicks cancel
+    if (userInput === null) {
+      alert("Quiz cancelled.");
+      return;
+    }
+
+    // Normalize Input
+    userInput = userInput.toLowerCase().trim();
+
+    // Check the Answer
+    if (userInput === quizQuestions[i].answer) {
+      score++;
+      alert("Correct! 🎉");
+    } else {
+      alert(`Incorrect ❌\nThe correct answer is: ${quizQuestions[i].answer}`);
+    }
+  }
+
+  // Display Final Score
+  alert(`Quiz Complete! 🎯\nYour final score: ${score} / ${quizQuestions.length}`);
+}
+
+// ===============================
+// Run the Quiz
+// ===============================
+runQuiz();
